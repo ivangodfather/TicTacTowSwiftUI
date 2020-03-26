@@ -27,7 +27,7 @@ class Game: ObservableObject {
     private var turn = TileContent.nought
     
     func didTap(x: Int, y: Int) {
-        guard board[x][y] == TileContent.undefined else {
+        guard board[x][y] == .undefined else {
             return
         }
         board[x][y] = turn
@@ -70,13 +70,12 @@ class Game: ObservableObject {
         ]
         winningCombinations.forEach { combination in
             if board[combination.0.x][combination.0.y] == board[combination.1.x][combination.1.y] {
-                            if board[combination.0.x][combination.0.y] == board[combination.2.x][combination.2.y] {
-                                if board[combination.0.x][combination.0.y] != .undefined {
-                                    hasEnded = true
-                                    winner = board[combination.0.x][combination.0.y]
-                                }
+                if board[combination.0.x][combination.0.y] == board[combination.2.x][combination.2.y] {
+                    if board[combination.0.x][combination.0.y] != .undefined {
+                        hasEnded = true
+                        winner = board[combination.0.x][combination.0.y]
+                    }
                 }
-                
             }
         }
     }

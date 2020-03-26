@@ -19,7 +19,6 @@ struct Nought: View {
                     .fill(Color.white)
                     .frame(width: min(reader.size.width, reader.size.height) / 1.5, height: min(reader.size.width, reader.size.height) / 1.5)
                     .clipShape(Circle())
-                
             }
         }
     }
